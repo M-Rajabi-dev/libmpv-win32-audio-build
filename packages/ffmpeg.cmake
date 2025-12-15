@@ -169,6 +169,14 @@ ExternalProject_Add(ffmpeg
 
         --enable-filter=overlay
         --enable-filter=equalizer
+        --enable-filter=arnndn
+        --enable-filter=afftdn
+        --enable-filter=dynaudnorm
+        --enable-filter=loudnorm
+        --enable-filter=volume
+        --enable-filter=acompressor
+        --enable-filter=lowpass
+        --enable-filter=highpass
 
         --enable-protocol=async
         --enable-protocol=cache
@@ -203,7 +211,7 @@ ExternalProject_Add(ffmpeg
 
         ${ffmpeg_lto}
         --extra-cflags='-Wno-error=int-conversion'
-        "--extra-libs='${ffmpeg_extra_libs}'" # -lstdc++ / -lc++ needs by libjxl and shaderc
+        "--extra-libs='${ffmpeg_extra_libs}'"
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
